@@ -59,10 +59,11 @@
     </table>
 
     <div class="pagination">
+      <span>共 <%= total %> 条记录</span>
       <% if (page > 1) { %>
         <a href="/?page=<%= page - 1 %>&search=<%= encodeURIComponent(search) %>">上一页</a>
       <% } %>
-      <span>第 <%= page %> / <%= totalPages %> 页（共 <%= books.length > 0 ? '5' : '0' %> 条/页）</span>
+      <span>第 <%= page %> / <%= totalPages %> 页</span>
       <% if (page < totalPages) { %>
         <a href="/?page=<%= page + 1 %>&search=<%= encodeURIComponent(search) %>">下一页</a>
       <% } %>
