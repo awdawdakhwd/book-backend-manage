@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>修改图书</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>修改图书</h1>
+    <form action="/edit/<%= book.bookId %>" method="post" onsubmit="return validate()">
+      <div class="form-group">
+        <label>图书编号 <span class="required">*</span></label>
+        <input type="text" name="bookCode" id="bookCode" value="<%= book.bookCode %>" required>
+      </div>
+      <div class="form-group">
+        <label>图书名称 <span class="required">*</span></label>
+        <input type="text" name="bookName" id="bookName" value="<%= book.bookName %>" required>
+      </div>
+      <div class="form-group">
+        <label>图书类型 <span class="required">*</span></label>
+        <select name="bookType" id="bookType" required>
+          <option value="">请选择</option>
+          <% types.forEach(function(t) { %>
+            <option value="<%= t.id %>" <%= book.bookType == t.id ? 'selected' : '' %>><%= t.typeName %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>作者 <span class="required">*</span></label>
+        <input type="text" name="bookAuthor" id="bookAuthor" value="<%= book.bookAuthor %>" required>
+      </div>
+      <div class="form-group">
+        <label>出版社 <span class="required">*</span></label>
+        <input type="text" name="publishPress" id="publishPress" value="<%= book.publishPress %>" required>
+      </div>
+      <div class="form-group">
+        <label>出版日期 <span class="required">*</span></label>
+        <input type="date" name="publishDate" id="publishDate" value="<%= book.publishDate ? book.publishDate.toISOString().slice(0, 10) : '' %>" required>
+      </div>
+      <div class="form-group">
+        <label>是否借阅 <span class="required">*</span></label>
+        <select name="borrowed" id="borrowed" required>
+          <option value="0" <%= book.borrowed == 0 ? 'selected' : '' %>>未借阅</option>
+          <option value="1" <%= book.borrowed == 1 ? 'selected' : '' %>>已借阅</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>入库人</label>
+        <input type="text" value="<%= book.createdBy %>" readonly>
+      </div>
+      <div class="form-group">
+        <label>入库时间</label>
+        <input type="text" value="<%= book.creationTime ? book.creationTime.toISOString().slice(0, 10) : '' %>" readonly>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">修改</button>
+        <a href="/" class="btn">返回</a>
+      </div>
+    </form>
+  </div>
+  <script>
+    function validate() {
+      var fields = ['bookCode', 'bookName', 'bookType', 'bookAuthor', 'publishPress', 'publishDate'];
+      for (var i = 0; i < fields.length; i++) {
+        var el = document.getElementById(fields[i]);
+        if (!el.value.trim()) {
+          alert('请填写所有必填项');
+          el.focus();
+          return false;
+        }
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

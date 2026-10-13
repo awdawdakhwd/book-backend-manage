@@ -1,0 +1,156 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "SimHei", sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4a90d9;
+}
+
+.alert {
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  border-radius: 4px;
+  color: #2e7d32;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-form {
+  display: flex;
+  gap: 6px;
+}
+
+.search-form input[type="text"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+button, .btn, .btn-add, .btn-clear {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+}
+
+.btn-primary { background: #4a90d9; color: #fff; border-color: #4a90d9; }
+.btn-add { background: #4a90d9; color: #fff; border-color: #4a90d9; }
+.btn-clear { background: #999; color: #fff; border-color: #999; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+th, td {
+  padding: 10px 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+tr.even { background: #fff; }
+tr.odd { background: #f9f9f9; }
+
+.actions a {
+  margin-right: 8px;
+  color: #4a90d9;
+  text-decoration: none;
+}
+
+.actions a.btn-delete { color: #e53935; }
+
+.pagination {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.pagination a {
+  margin: 0 8px;
+  color: #4a90d9;
+  text-decoration: none;
+}
+
+/* 详情页 */
+.detail-table th {
+  width: 120px;
+  text-align: right;
+  background: #fafafa;
+}
+
+/* 表单 */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 260px;
+  font-size: 14px;
+}
+
+.form-group input[readonly] {
+  background: #eee;
+  color: #666;
+}
+
+.required { color: #e53935; }
+
+.form-actions {
+  margin-top: 20px;
+  padding-left: 110px;
+}
+
+.form-actions .btn {
+  margin-right: 10px;
+}

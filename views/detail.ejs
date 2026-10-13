@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>图书详细信息</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>图书详细信息</h1>
+    <table class="detail-table">
+      <tr><th>图书编号</th><td><%= book.bookCode %></td></tr>
+      <tr><th>图书名称</th><td><%= book.bookName %></td></tr>
+      <tr><th>图书类型</th><td><%= book.typeName %></td></tr>
+      <tr><th>作者</th><td><%= book.bookAuthor %></td></tr>
+      <tr><th>出版社</th><td><%= book.publishPress %></td></tr>
+      <tr><th>出版日期</th><td><%= book.publishDate ? book.publishDate.toISOString().slice(0, 10) : '' %></td></tr>
+      <tr><th>是否借阅</th><td><%= book.borrowed == 1 ? '已借阅' : '未借阅' %></td></tr>
+      <tr><th>入库人</th><td><%= book.createdBy %></td></tr>
+      <tr><th>入库时间</th><td><%= book.creationTime ? book.creationTime.toISOString().slice(0, 10) : '' %></td></tr>
+    </table>
+    <div class="form-actions">
+      <a href="/?search=<%= encodeURIComponent(search) %>&page=<%= page %>" class="btn">返回</a>
+    </div>
+  </div>
+</body>
+</html>
