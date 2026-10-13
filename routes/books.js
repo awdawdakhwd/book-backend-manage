@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const search = req.query.search || '';
     const { rows, total, totalPages } = await bookModel.getAll(page, search);
-    res.render('list', { books: rows, page, totalPages, search, message: req.query.msg || '' });
+    res.render('list', { books: rows, page, totalPages, total, search, message: req.query.msg || '' });
   } catch (err) {
     res.status(500).send('服务器错误: ' + err.message);
   }
